@@ -29,10 +29,18 @@ playerX_change = 0
 
 longueurImage,hauteurImage=playerImg.get_size()
 
-ficAudioAvant = pygame.mixer.Sound('enAvant.wav')
-ficAudioArriere = pygame.mixer.Sound('enArriere.wav')
+ficAudioAvant = pygame.mixer.Sound('audio/enAvant.wav')
+ficAudioArriere = pygame.mixer.Sound('audio/enArriere.wav')
+ficAudioHaut = pygame.mixer.Sound('audio/enHaut.wav')
+ficAudioBas = pygame.mixer.Sound('audio/enBas.wav')
 def player(x, y):
     screen.blit(playerImg, (x, y))
+
+def stopSounds():
+    ficAudioArriere.stop()
+    ficAudioAvant.stop()
+    ficAudioHaut.stop()
+    ficAudioBas.stop()
 
 def updatePlayer():
     keystate = pygame.key.get_pressed()
@@ -41,17 +49,23 @@ def updatePlayer():
     playerImg=playerImg1
     if keystate[pygame.K_LEFT]:
         playerImg=playerImg2
+        stopSounds()
         ficAudioArriere.play()
         xDeplacement = -4
     if keystate[pygame.K_RIGHT]:
         playerImg=playerImg1
+        stopSounds()
         ficAudioAvant.play()
         xDeplacement = 4
     if keystate[pygame.K_UP]:
         playerImg=playerImg3
+        stopSounds()
+        ficAudioHaut.play()
         yDeplacement = -4
     if keystate[pygame.K_DOWN]:
         playerImg=playerImg1
+        stopSounds()
+        ficAudioBas.play()
         yDeplacement = 4
     return(playerImg,xDeplacement,yDeplacement) 
 
