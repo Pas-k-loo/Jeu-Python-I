@@ -17,9 +17,9 @@ pygame.display.set_icon(icon)
 
 
 # Player
-playerImg = pygame.image.load('image/Personnage.jpg')
 playerImg1 = pygame.image.load('image/Personnage.jpg')
 playerImg2 = pygame.image.load('image/PersonnageRetour.jpg')
+playerImg=playerImg1
 playerX = 370
 playerY = 380
 playerX_change = 0
