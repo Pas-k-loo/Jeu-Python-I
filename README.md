@@ -1,2 +1,2 @@
 # Jeu-Python-I
-jeu entre potes
+jeu entre potes2
