@@ -8,8 +8,6 @@ size = width, height = 640, 480
 speed = [2, 2]
 black = 0, 0, 0
 
-screen = pygame.display.set_mode(size)#Crée la fenetre graphique
-=======
 # create the screen
 screen = pygame.display.set_mode((800, 600))
 
