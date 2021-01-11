@@ -21,6 +21,7 @@ FPS = 60
 # Player
 playerImg1 = pygame.image.load('image/Personnage.jpg')
 playerImg2 = pygame.image.load('image/PersonnageRetour.jpg')
+playerImg3 = pygame.image.load('image/PersonnageDos.jpg')
 playerImg=playerImg1
 playerX = 370
 playerY = 380
@@ -34,12 +35,22 @@ def player(x, y):
 
 def updatePlayer():
     keystate = pygame.key.get_pressed()
+    xDeplacement = 0
+    yDeplacement = 0
+    playerImg=playerImg1
     if keystate[pygame.K_LEFT]:
-        return(-4)
+        playerImg=playerImg2
+        xDeplacement = -4
     if keystate[pygame.K_RIGHT]:
-        return(4)
-    else:
-        return(0)
+        playerImg=playerImg1
+        xDeplacement = 4
+    if keystate[pygame.K_UP]:
+        playerImg=playerImg3
+        yDeplacement = -4
+    if keystate[pygame.K_DOWN]:
+        playerImg=playerImg1
+        yDeplacement = 4
+    return(playerImg,xDeplacement,yDeplacement) 
 
 # Game Loop
 running = True
@@ -56,19 +67,24 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-	
-        playerX_change = 0
+
 	
     	# si touche enfoncée
 
-        playerX_change = updatePlayer()
+        playerImg,playerX_change,playerY_change = updatePlayer()
 
     #vérifier les limites de l'espace de jeu
     playerX += playerX_change
+    playerY += playerY_change
     if playerX <= 0:
         playerX = 0
     elif playerX >= (800-longueurImage):
         playerX = (800-longueurImage)
+
+    if playerY <= 0:
+        playerY = 0
+    elif playerY >= (600-hauteurImage):
+        playerY = (600-hauteurImage)
 
     player(playerX,playerY)
     pygame.display.update()
