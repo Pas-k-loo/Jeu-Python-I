@@ -1,26 +1,79 @@
 import sys, time, pygame
+
+# Intialize the pygame
 pygame.init()
 
+<<<<<<< Updated upstream
 size = width, height = 640, 480
 speed = [2, 2]
 black = 0, 0, 0
 
 screen = pygame.display.set_mode(size)#Crée la fenetre graphique
+=======
+# create the screen
+screen = pygame.display.set_mode((800, 600))
 
-ball = pygame.image.load("intro_ball.gif")
-ballrect = ball.get_rect()
+#Background
+background = pygame.image.load('background.jpg')
 
-while 1:
+# Caption and Icon
+pygame.display.set_caption("Icone")
+icon = pygame.image.load('icone.png')
+pygame.display.set_icon(icon)
+
+
+
+# Player
+playerImg = pygame.image.load('personnage.png')
+playerX = 370
+playerY = 480
+playerX_change = 0
+
+
+
+
+def player(x, y):
+    screen.blit(playerImg, (x, y))
+
+
+>>>>>>> Stashed changes
+
+
+
+
+# Game Loop
+running = True
+while running:
+
+    # RGB = Red, Green, Blue
+    screen.fill((0, 0, 0))
+    #Background Image
+    screen.blit(background,(0,0))
+
+
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
+        if event.type == pygame.QUIT:
+            running = False
 
-    ballrect = ballrect.move(speed)
-    if ballrect.left < 0 or ballrect.right > width:
-        speed[0] = -speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
-        speed[1] = -speed[1]
+    	# si touche enfoncée
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                playerX_change = -4
+            if event.key == pygame.K_RIGHT:
+                playerX_change = 4
 
-    screen.fill(black)
-    screen.blit(ball, ballrect)
-    time.sleep(0.01)
-    pygame.display.flip()
+	#Quand touche est relachée
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                playerX_change = 0
+
+
+    #vérifier les limites de l'espace de jeu
+    playerX += playerX_change
+    if playerX <= 0:
+        playerX = 0
+    elif playerX >= 736:
+        playerX = 736
+
+    player(playerX,playerY)
+    pygame.display.update()
