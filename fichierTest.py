@@ -19,9 +19,10 @@ FPS = 60
 
 
 # Player
-playerImg1 = pygame.image.load('image/Personnage.jpg')
-playerImg2 = pygame.image.load('image/PersonnageRetour.jpg')
-playerImg3 = pygame.image.load('image/PersonnageDos.jpg')
+playerImg1 = pygame.image.load('image/Personnage2.png')
+playerImg2 = pygame.image.load('image/Personnage2Retour.png')
+playerImg3 = pygame.image.load('image/Personnage2Dos.png')
+playerImg4 = pygame.image.load('image/Personnage2RetourDos.png')
 playerImg=playerImg1
 playerX = 370
 playerY = 380
