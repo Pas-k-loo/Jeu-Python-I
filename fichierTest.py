@@ -22,9 +22,9 @@ pygame.display.set_icon(icon)
 
 
 # Player
-playerImg = pygame.image.load('personnage.png')
+playerImg = pygame.image.load('Personnage.jpg')
 playerX = 370
-playerY = 480
+playerY = 380
 playerX_change = 0
 
 
@@ -33,8 +33,6 @@ playerX_change = 0
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
-
->>>>>>> Stashed changes
 
 
 
