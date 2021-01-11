@@ -15,7 +15,7 @@ icon = pygame.image.load('image/icone.png')
 pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
-FPS = 30
+FPS = 60
 
 
 # Player
@@ -32,7 +32,14 @@ longueurImage,hauteurImage=playerImg.get_size()
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
-
+def updatePlayer():
+    keystate = pygame.key.get_pressed()
+    if keystate[pygame.K_LEFT]:
+        return(-4)
+    if keystate[pygame.K_RIGHT]:
+        return(4)
+    else:
+        return(0)
 
 # Game Loop
 running = True
@@ -49,21 +56,12 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+	
+        playerX_change = 0
+	
     	# si touche enfoncée
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                playerX_change = -8
-                playerImg=playerImg2
-            if event.key == pygame.K_RIGHT:
-                playerX_change = 8
-                playerImg=playerImg1
 
-	#Quand touche est relachée
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                playerX_change = 0
-
+        playerX_change = updatePlayer()
 
     #vérifier les limites de l'espace de jeu
     playerX += playerX_change
