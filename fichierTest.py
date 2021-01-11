@@ -3,28 +3,23 @@ import sys, time, pygame
 # Intialize the pygame
 pygame.init()
 
-#Ecran
-size = width, height = 640, 480
-speed = [2, 2]
-black = 0, 0, 0
-
 # create the screen
 screen = pygame.display.set_mode((800, 600))
 
 #Background
-background = pygame.image.load('background.jpg')
+background = pygame.image.load('image/background.jpg')
 
 # Caption and Icon
 pygame.display.set_caption("Icone")
-icon = pygame.image.load('icone.png')
+icon = pygame.image.load('image/icone.png')
 pygame.display.set_icon(icon)
 
 
 
 # Player
-playerImg = pygame.image.load('Personnage.jpg')
-playerImg1 = pygame.image.load('Personnage.jpg')
-playerImg2 = pygame.image.load('PersonnageRetour.jpg')
+playerImg = pygame.image.load('image/Personnage.jpg')
+playerImg1 = pygame.image.load('image/Personnage.jpg')
+playerImg2 = pygame.image.load('image/PersonnageRetour.jpg')
 playerX = 370
 playerY = 380
 playerX_change = 0
@@ -34,8 +29,6 @@ longueurImage,hauteurImage=playerImg.get_size()
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
-
-
 
 
 
