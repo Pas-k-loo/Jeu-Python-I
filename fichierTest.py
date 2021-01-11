@@ -14,6 +14,8 @@ pygame.display.set_caption("Icone")
 icon = pygame.image.load('image/icone.png')
 pygame.display.set_icon(icon)
 
+clock = pygame.time.Clock()
+FPS = 30
 
 
 # Player
@@ -36,6 +38,8 @@ def player(x, y):
 running = True
 while running:
 
+    clock.tick(FPS)	
+
     # RGB = Red, Green, Blue
     screen.fill((0, 0, 0))
     #Background Image
@@ -49,10 +53,10 @@ while running:
     	# si touche enfoncée
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                playerX_change = -4
+                playerX_change = -8
                 playerImg=playerImg2
             if event.key == pygame.K_RIGHT:
-                playerX_change = 4
+                playerX_change = 8
                 playerImg=playerImg1
 
 	#Quand touche est relachée
