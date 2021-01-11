@@ -3,7 +3,7 @@ import sys, time, pygame
 # Intialize the pygame
 pygame.init()
 
-<<<<<<< Updated upstream
+#Ecran
 size = width, height = 640, 480
 speed = [2, 2]
 black = 0, 0, 0
