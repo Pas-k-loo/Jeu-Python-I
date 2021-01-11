@@ -23,11 +23,13 @@ pygame.display.set_icon(icon)
 
 # Player
 playerImg = pygame.image.load('Personnage.jpg')
+playerImg1 = pygame.image.load('Personnage.jpg')
+playerImg2 = pygame.image.load('PersonnageRetour.jpg')
 playerX = 370
 playerY = 380
 playerX_change = 0
 
-
+longueurImage,hauteurImage=playerImg.get_size()
 
 
 def player(x, y):
@@ -55,8 +57,10 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 playerX_change = -4
+                playerImg=playerImg2
             if event.key == pygame.K_RIGHT:
                 playerX_change = 4
+                playerImg=playerImg1
 
 	#Quand touche est relachée
         if event.type == pygame.KEYUP:
@@ -68,8 +72,8 @@ while running:
     playerX += playerX_change
     if playerX <= 0:
         playerX = 0
-    elif playerX >= 736:
-        playerX = 736
+    elif playerX >= (800-longueurImage):
+        playerX = (800-longueurImage)
 
     player(playerX,playerY)
     pygame.display.update()
