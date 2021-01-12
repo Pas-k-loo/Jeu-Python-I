@@ -91,6 +91,9 @@ while running:
     #Background Image
     screen.blit(background,(0,0))
 
+    keystate = pygame.key.get_pressed() #Pourquitter le jeu quand il sera en fullscreen. revoir mss
+    if (keystate[pygame.K_q]):
+        running = False
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
