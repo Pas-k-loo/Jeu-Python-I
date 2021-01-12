@@ -27,8 +27,8 @@ playerImg4 = pygame.image.load('image/Personnage2RetourDos.png')
 playerImg=playerImg1
 longueurImage,hauteurImage=playerImg.get_size()
 
-playerX = 0
-playerY = 600 - hauteurImage 
+playerX = 10
+playerY = 600 - hauteurImage -10
 playerX_change = 0
 
 
@@ -105,22 +105,22 @@ while running:
     playerX += playerX_change
     playerY += playerY_change
     if playerX <= 0:
-        playerX = 0
-        #stopSounds()
-        #ficAudioMur.play()
+        playerX = 1
+        stopSounds()
+        ficAudioMur.play()
     elif playerX >= (800-longueurImage):
-        playerX = (800-longueurImage)
-        #stopSounds()
-        #ficAudioMur.play()
+        playerX = (800-longueurImage)-1
+        stopSounds()
+        ficAudioMur.play()
 
     if playerY <= 0:
-        playerY = 0
-        #stopSounds()
-        #ficAudioMur.play()
+        playerY = 1
+        stopSounds()
+        ficAudioMur.play()
     elif playerY >= (600-hauteurImage):
-        playerY = (600-hauteurImage)
-        #stopSounds()
-        #ficAudioMur.play()
+        playerY = (600-hauteurImage)-1
+        stopSounds()
+        ficAudioMur.play()
 
     player(playerX,playerY)
     pygame.display.update()
