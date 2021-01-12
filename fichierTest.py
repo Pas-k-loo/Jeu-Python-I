@@ -4,6 +4,7 @@ import sys, time, pygame
 pygame.init()
 
 # create the screen
+#screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 screen = pygame.display.set_mode((800, 600))
 
 #Background
@@ -11,7 +12,7 @@ background = pygame.image.load('image/background.jpg')
 
 # Caption and Icon
 pygame.display.set_caption("Icone")
-icon = pygame.image.load('image/icone.png')
+icon = pygame.image.load('image/3232.png').convert()
 pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
@@ -24,11 +25,12 @@ playerImg2 = pygame.image.load('image/Personnage2Retour.png')
 playerImg3 = pygame.image.load('image/Personnage2Dos.png')
 playerImg4 = pygame.image.load('image/Personnage2RetourDos.png')
 playerImg=playerImg1
-playerX = 370
-playerY = 380
+longueurImage,hauteurImage=playerImg.get_size()
+
+playerX = 0
+playerY = 600 - hauteurImage 
 playerX_change = 0
 
-longueurImage,hauteurImage=playerImg.get_size()
 
 ficAudioAvant = pygame.mixer.Sound('audio/enAvant.wav')
 ficAudioArriere = pygame.mixer.Sound('audio/enArriere.wav')
